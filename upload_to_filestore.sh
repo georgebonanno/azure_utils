@@ -7,7 +7,11 @@ set -e
 if [ $# -ne 1 ]; then
 	echo "usage: $0 path_to_file_to_upload"
 fi
+
+function upload_to_azure_fstore() {
+
 f="$1"
+[ -f $f ] || { echo "$f does not exist"; echo "exiting..."; exit 1;}
 fname=$(basename $f)
 size=$(du -b $f | cut -f1)
 
@@ -30,3 +34,6 @@ while [ 1 ]; do
 		break;
 	fi
 done
+}
+
+upload_to_azure_fstore $1
