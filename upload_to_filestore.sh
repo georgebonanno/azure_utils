@@ -33,7 +33,7 @@ while [ 1 ]; do
 	if [ $end -eq $size ]; then
 		break;
 	fi
-done
+	done
 }
 
 upload_to_azure_fstore $1
